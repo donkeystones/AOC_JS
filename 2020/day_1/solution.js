@@ -11,11 +11,12 @@ for(let i = 0; i < data_arr.length-1; i++) {
 	sum1 -= data_arr[i];
 
 	for(let j = i+1; j < data_arr.length-1; j++){
-		let sum2 = 2020 - data_arr[j];
-		if(sum1 === data_arr[j])
+		if(sum1 === data_arr[j] && part1 === 0)
 			part1 = data_arr[j] * data_arr[i];
 		for(let k = j+1;k < data_arr.length-1; k++){
-			if(sum2 === data_arr[k]) part2 = data_arr[i]*data_arr[j]*data_arr[k];
+			if(data_arr[i]+data_arr[j]+data_arr[k] === 2020){
+				part2 = data_arr[i]*data_arr[j]*data_arr[k]
+			}
 		}
 	}
 }
