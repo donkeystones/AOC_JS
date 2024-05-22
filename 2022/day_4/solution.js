@@ -2,7 +2,7 @@ let fs = require("fs");
 
 var data = fs.readFileSync('./input.txt','utf8');
 
-let total_fully_overlap_pairs = 0;
+let answer = [];
 
 const get_high_and_low = (pair) => {
 	let hlarr = pair.split("-");
@@ -10,9 +10,10 @@ const get_high_and_low = (pair) => {
 }
 
 const get_full_overlaps = (pairs) => {
-	let total = 0;
+	let part1 = 0, part2 = 0;
 	pairs.forEach((pair) => {
 		if(pair !== ""){
+			//Part 1
 			let pair_arr = pair.split(","); 
 	
 			let pair_a = pair_arr[0];
@@ -25,10 +26,15 @@ const get_full_overlaps = (pairs) => {
 			    pair_a_hl[1] >= pair_b_hl[1]) ||
 			   (pair_b_hl[0] <= pair_a_hl[0] &&
 			    pair_b_hl[1] >= pair_a_hl[1]))
-				total++;
+				part1++;
+
+			if(((pair_a_hl[1] >= pair_b_hl[0]) && (pair_a_hl[1] <= pair_b_hl[1])) ||
+			   ((pair_a_hl[0] <= pair_b_hl[1]) && (pair_a_hl[0] >= pair_b_hl[0])))
+				part2++;
 		}
 	});
-	return total;
+	return [part1, part2];
 }
-total_fully_overlap_pairs = get_full_overlaps(data.split("\n"));
-console.log(total_fully_overlap_pairs);
+answer = get_full_overlaps(data.split("\n"));
+console.log(answer[0]);
+console.log(answer[1]);
