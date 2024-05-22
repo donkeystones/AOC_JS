@@ -26,3 +26,25 @@ data.split("\n").map(rs => {
 });
 
 console.log(total_sum_part_1);
+
+//Part 2
+const get_badge_sums_from_groups = (groups) => {
+	let total = 0;
+	console.log(groups.length);
+	for(let i = 0; i < groups.length; i+=3){
+		if(groups[i] !== ""){
+			let group1 = groups[i].split("");
+			let group2 = groups[i+1].split("");
+			let group3 = groups[i+2].split("");
+			let badge = "";
+			group1.forEach((item) => {
+				if((group2.indexOf(item) > -1) && (group3.indexOf(item) > -1)) badge += item;
+			});
+			total += get_priority(badge);
+		}
+	}
+	return total;
+}
+
+let total_sum_part_2 = get_badge_sums_from_groups(data.split("\n"));
+console.log(total_sum_part_2);
