@@ -2,24 +2,24 @@ let fs = require("fs");
 
 var data = fs.readFileSync('./input.txt','utf8');
 //Part 1
-//Rock (X,A) 1
-//Paper (Y,B) 2 
-//Scissor (Z,C) 3
+//Rock (A,X) 1
+//Paper (B,Y) 2 
+//Scissor (C,Z) 3
 
 //Win = 8
 //Draw = 3
 //Lose = 0
 
 const get_match_outcome = (you, opponent) => {
-	if(opponent === "X" && you === "A") return 3;
-	else if(opponent === "X" && you === "B") return 8;
-	else if(opponent === "X" && you === "C") return 0;
-	else if(opponent === "Y" && you === "A") return 0;
-	else if(opponent === "Y" && you === "B") return 3;
-	else if(opponent === "Y" && you === "C") return 8;
-	else if(opponent === "Z" && you === "A") return 8;
-	else if(opponent === "Z" && you === "B") return 0;
-	else if(opponent === "Z" && you === "C") return 3;
+	if(you === "X" && opponent === "A") return 3;
+	else if(you === "X" && opponent === "B") return 0;
+	else if(you === "X" && opponent === "C") return 3;
+	else if(you === "Y" && opponent === "A") return 8;
+	else if(you === "Y" && opponent === "B") return 3;
+	else if(you === "Y" && opponent === "C") return 0;
+	else if(you === "Z" && opponent === "A") return 0;
+	else if(you === "Z" && opponent === "B") return 8;
+	else if(you === "Z" && opponent === "C") return 3;
 	else return 0;
 }
 
