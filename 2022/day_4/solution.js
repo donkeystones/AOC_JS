@@ -28,8 +28,8 @@ const get_full_overlaps = (pairs) => {
 			    pair_b_hl[1] >= pair_a_hl[1]))
 				part1++;
 
-			if(((pair_a_hl[1] >= pair_b_hl[0]) && (pair_a_hl[1] <= pair_b_hl[1])) ||
-			   ((pair_a_hl[0] <= pair_b_hl[1]) && (pair_a_hl[0] >= pair_b_hl[0])))
+			if((pair_a_hl[0] <= pair_b_hl[1] && pair_a_hl[0] >= pair_b_hl[0])||
+			   (pair_a_hl[1] >= pair_b_hl[0] && pair_a_hl[1] <= pair_b_hl[1]))
 				part2++;
 		}
 	});
