@@ -12,6 +12,7 @@ for(let i = 0; i < data_arr.length; i++){
 		sum++;
 	}
 
+	//Some comment
 }
 
 console.log(sum);
