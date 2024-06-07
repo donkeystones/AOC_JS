@@ -7,11 +7,8 @@ let valid_fields = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid", "cid"];
 let sum = 0;
 for(let i = 0; i < data_arr.length; i++){
 	let valid = true;
-	console.log(data_arr[i]);
-	console.log("----------------------------------------");
-	valid_fields.map(field => {
-		if(!data_arr[i].includes(field)) valid = false;
-	});
+	let pass_data = data_arr[i].split(/[\n\s]/);//Part 2?
+	
 	if (valid) sum++;
 }
 
