@@ -8,8 +8,10 @@ let sum = 0;
 for(let i = 0; i < data_arr.length; i++){
 	let valid = true;
 	let pass_data = data_arr[i].split(/[\n\s]/);//Part 2?
-	
-	if (valid) sum++;
+	if(valid_fields.every(item => data_arr[i].includes(item))) {
+		sum++;
+	}
+
 }
 
 console.log(sum);
